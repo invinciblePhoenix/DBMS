@@ -1,0 +1,14 @@
+import random
+import smtplib
+password='lmko qtgy zsfk zhpd'
+
+server=smtplib.SMTP('smtp.gmail.com', 587)
+server.starttls()
+server.login('ansumanbiswas2000@gmail.com', password)
+otp=''.join([str(random.randint(0,9)) for i in range(4)])
+msg='Hello, \nYour OTP is '+ str(otp)
+######(sender, receiver, msg)
+server.sendmail('chilly.tower@gmail.com', 'chilly.tower@gmail.com', msg)
+server.quit()
+
+server.sendmail('chilly.tower@gmail.com', 'securesally@gmail.com', msg)
